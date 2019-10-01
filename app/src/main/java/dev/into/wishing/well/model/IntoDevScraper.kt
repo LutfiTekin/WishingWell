@@ -33,6 +33,7 @@ class IntoDevScraper(val browser: WebView, val product: Product) {
                 productData.url = product.url
                 loadedProduct(productData)
                 scrapeListener = null
+                stop()
             }
 
         }

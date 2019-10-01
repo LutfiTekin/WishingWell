@@ -16,6 +16,8 @@ class ProductViewModel(application: Application) : AndroidViewModel(application)
         return collectionsDB.data().fetch(collection)
     }
 
+
+
 }
 
 
