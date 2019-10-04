@@ -3,6 +3,7 @@ package dev.into.wishing.well.ui
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -26,5 +27,12 @@ class WishlistCollectionActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+
+        }
+        intent.extras?.getString("url")?.let {url->
+            val bundle = bundleOf("url" to url)
+            navController.navigate(R.id.navigation_dashboard,bundle)
+        }
     }
 }

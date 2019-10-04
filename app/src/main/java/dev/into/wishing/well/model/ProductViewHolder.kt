@@ -11,13 +11,12 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.into.wishing.well.R
-import kotlinx.android.synthetic.main.product_card.view.*
 
 class ProductViewHolder internal constructor(inflater: LayoutInflater, parent: ViewGroup, @LayoutRes res: Int)
     : RecyclerView.ViewHolder(inflater.inflate(res, parent, false)){
     val card: CardView = itemView.findViewById(R.id.card)
     val title: TextView = itemView.findViewById(R.id.productTitle)
-    val image: ImageView = itemView.findViewById(R.id.prodcutImage)
+    val image: ImageView = itemView.findViewById(R.id.productImage)
     val price: TextView = itemView.findViewById(R.id.productPrice)
 
     var product: Product? = null
