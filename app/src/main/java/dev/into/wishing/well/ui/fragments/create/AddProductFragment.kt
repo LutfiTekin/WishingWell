@@ -69,6 +69,7 @@ class AddProductFragment : Fragment() {
         Glide.with(fragmentView).load(imageUrl).into(autoCompletedImage)
         productPrice.setText("${price}₺",TextView.BufferType.EDITABLE)
         progressBar.visibility = View.INVISIBLE
+        fill.isChecked = false
     }
 
     private lateinit var fragmentView: View
@@ -80,6 +81,8 @@ class AddProductFragment : Fragment() {
 
 
         fill.setOnCheckedChangeListener{ compoundButton: CompoundButton, isChecked: Boolean ->
+            if (!compoundButton.isPressed)
+                return@setOnCheckedChangeListener
             if (isChecked){
                 url = productUrl.text.toString()
                 progressBar.visibility = View.VISIBLE

@@ -1,5 +1,6 @@
-package dev.into.wishing.well.model
+package dev.into.wishing.well.viewholder
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.into.wishing.well.R
+import dev.into.wishing.well.model.Product
 
 class ProductViewHolder internal constructor(inflater: LayoutInflater, parent: ViewGroup, @LayoutRes res: Int)
     : RecyclerView.ViewHolder(inflater.inflate(res, parent, false)){
@@ -30,6 +32,7 @@ class ProductViewHolder internal constructor(inflater: LayoutInflater, parent: V
 
     }
 
+    @SuppressLint("SetTextI18n")
     fun bind(product: Product){
         this.product = product
         title.text = product.name
