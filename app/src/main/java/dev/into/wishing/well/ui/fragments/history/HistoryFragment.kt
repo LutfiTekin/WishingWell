@@ -26,12 +26,13 @@ class HistoryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        productViewHolder = ViewModelProviders.of(this).get(ProductViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_history, container, false)
         return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        productViewHolder = ViewModelProviders.of(this).get(ProductViewModel::class.java)
+
         historyList.layoutManager = LinearLayoutManager(this.context)
 
         productViewHolder.fetch().observe(this, Observer {
