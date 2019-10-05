@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:ignore="ContentDescription">
 <WebView
     android:layout_width="0dp"
     android:layout_height="0dp"
@@ -18,7 +19,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/productTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/productTitle"
-        app:srcCompat="@drawable/ic_label_outline_black_24dp" />
+        app:srcCompat="@drawable/ic_label_outline_black_24dp"
+         />
 
     <EditText
         android:id="@+id/productUrl"
@@ -28,7 +30,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="Enter a url here"
+        android:hint="@string/enter_a_url_here"
         android:inputType="textUri"
         app:layout_constraintEnd_toStartOf="@+id/fill"
         app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -53,7 +55,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="Title"
+        android:hint="@string/title"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
@@ -65,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:hint="Price"
+        android:hint="@string/price"
         android:minWidth="88dp"
         android:inputType="numberDecimal"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
@@ -89,22 +91,23 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="8dp"
         android:adjustViewBounds="true"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/addProduct"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/productPrice"
         app:srcCompat="@mipmap/ic_launcher" />
 
-    <Button
+    <ToggleButton
         android:id="@+id/fill"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginEnd="16dp"
-        android:text="Fill"
+        android:textOff="@string/fill"
+        android:textOn="@string/cancel"
         app:layout_constraintBottom_toBottomOf="@+id/productUrl"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/productUrl" />
@@ -130,8 +133,8 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="Add To List"
+        android:layout_marginBottom="8dp"
+        android:text="@string/add_to_list"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

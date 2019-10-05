@@ -10,8 +10,8 @@
     <string name="title_dashboard">Ürün Ekle</string>
     <string name="title_home">Anasayfa</string>
     <string name="title_notifications">Bildirimler</string>
-    <string name="enter_a_url_here">Enter a url here</string>
-    <string name="title">Title</string>
-    <string name="price">Price</string>
-    <string name="add_to_list">Add To List</string>
+    <string name="enter_a_url_here">Bir url girin</string>
+    <string name="title">Başlık</string>
+    <string name="price">Fiyat</string>
+    <string name="add_to_list">Listeye Ekle</string>
 </resources>
