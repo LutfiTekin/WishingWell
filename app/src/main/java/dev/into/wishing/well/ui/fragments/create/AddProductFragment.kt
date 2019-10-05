@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CompoundButton
 import android.widget.TextView
 import androidx.annotation.UiThread
 import androidx.fragment.app.Fragment
@@ -18,6 +19,8 @@ import dev.into.wishing.well.model.IntoDevScraper
 import dev.into.wishing.well.model.Product
 import kotlinx.android.synthetic.main.fragment_add_product.*
 import kotlinx.android.synthetic.main.fragment_add_product.browser
+import kotlinx.android.synthetic.main.fragment_add_product.productPrice
+import kotlinx.android.synthetic.main.fragment_add_product.productTitle
 
 
 class AddProductFragment : Fragment() {
@@ -74,11 +77,21 @@ class AddProductFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         fragmentView = view
         addProduct.isEnabled = false
-        fill.setOnClickListener {
-            url = productUrl.text.toString()
-            progressBar.visibility = View.VISIBLE
-            IntoDevScraper(browser,Product(url)).refreshProduct {
-                productUrl.post { it.updateUI() }
+
+
+        fill.setOnCheckedChangeListener{ compoundButton: CompoundButton, isChecked: Boolean ->
+            if (isChecked){
+                url = productUrl.text.toString()
+                progressBar.visibility = View.VISIBLE
+                IntoDevScraper(browser,Product(url)).refreshProduct {
+                    productUrl.post { it.updateUI() }
+                }
+            }else{
+                productPrice.setText("",TextView.BufferType.EDITABLE)
+                productTitle.setText("",TextView.BufferType.EDITABLE)
+                autoCompletedImage.setImageBitmap(null)
+                addProduct.isEnabled = false
+                progressBar.visibility = View.GONE
             }
         }
 
@@ -98,4 +111,6 @@ class AddProductFragment : Fragment() {
         }
         super.onViewCreated(view, savedInstanceState)
     }
+
+
 }
