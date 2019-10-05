@@ -1,5 +1,6 @@
-package dev.into.wishing.well.ui.fragments.dashboard
+package dev.into.wishing.well.ui.fragments.create
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -53,7 +54,7 @@ class AddProductFragment : Fragment() {
         mContext = context
         super.onAttach(context)
     }
-
+    @SuppressLint("SetTextI18n")
     @UiThread
     private fun Product.updateUI() {
         product = this

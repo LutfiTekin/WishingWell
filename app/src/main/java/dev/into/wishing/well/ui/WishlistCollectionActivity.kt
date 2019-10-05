@@ -4,7 +4,6 @@ import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -32,7 +31,7 @@ class WishlistCollectionActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_home, R.id.navigation_create, R.id.navigation_notifications
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -47,7 +46,7 @@ class WishlistCollectionActivity : AppCompatActivity() {
     private fun handleIntent() {
         intent.extras?.getString("url")?.let { url ->
             val bundle = bundleOf("url" to url)
-            navController.navigate(R.id.navigation_dashboard, bundle)
+            navController.navigate(R.id.navigation_create, bundle)
         }
     }
 

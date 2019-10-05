@@ -16,8 +16,8 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="dev.into.wishing.well.ui.fragments.dashboard.AddProductFragment"
+        android:id="@+id/navigation_create"
+        android:name="dev.into.wishing.well.ui.fragments.create.AddProductFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_add_product" />
 
