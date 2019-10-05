@@ -19,4 +19,5 @@
     <string name="new_list_alert_message">Give your wish list a name</string>
     <string name="add">Add</string>
     <string name="spinner_select_placeholder">Select a collection</string>
+    <string name="new_list">New</string>
 </resources>

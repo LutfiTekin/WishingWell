@@ -75,7 +75,7 @@ class AddProductFragment : Fragment() {
         if (new.isNotEmpty())
             arrayList.add(new)
         arrayList.add(mContext.getString(R.string.spinner_select_placeholder))
-        val collections = CollectionsDB.db(context).data().fetchCollections().observe(this@AddProductFragment,
+        CollectionsDB.db(context).data().fetchCollections().observe(this@AddProductFragment,
             Observer {collections ->
                 collections.forEach {
                     arrayList.add(it)
@@ -99,6 +99,7 @@ class AddProductFragment : Fragment() {
 
     }
 
+    @Suppress("DEPRECATION")
     private fun showAddNewListAlert(){
         val cfET = EditText(mContext)
         cfET.hint = getString(R.string.new_list_alert_hint)

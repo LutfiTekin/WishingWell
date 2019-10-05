@@ -8,12 +8,12 @@ import android.util.TypedValue
 import java.text.NumberFormat
 import java.util.*
 
+@Suppress("DEPRECATION")
 fun String.stripHtml(): String {
     val html: String = this
     return if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
         Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY).toString()
     } else {
-
         Html.fromHtml(html).toString()
     }
 }

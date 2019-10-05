@@ -34,7 +34,8 @@
         android:inputType="textUri"
         app:layout_constraintEnd_toStartOf="@+id/fill"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:importantForAutofill="no" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -59,7 +60,8 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/productUrl" />
+        app:layout_constraintTop_toBottomOf="@+id/productUrl"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/productPrice"
@@ -71,7 +73,8 @@
         android:minWidth="88dp"
         android:inputType="numberDecimal"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/productTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/productTitle"
+        android:importantForAutofill="no" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -164,7 +167,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:text="New"
+        android:text="@string/new_list"
         app:layout_constraintBottom_toBottomOf="@+id/listSpinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/listSpinner" />
