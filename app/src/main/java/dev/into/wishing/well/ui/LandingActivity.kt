@@ -29,18 +29,7 @@ class LandingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        intent.extras?.getString("url")?.let {
-            val product = Product(it)
-            val scraper = IntoDevScraper(webView,product)
-            scraper.refreshProduct {
-                val pe = ProductEntity(it.data,"wishlist",false)
-                val id = pe.push(this.applicationContext)
-                println("DB entry added $id ${pe.product.name} ${product.name}")
-                startActivity(Intent(this,WishlistCollectionActivity::class.java))
-            }
-        }
-        if (intent.extras?.getString("url") == null)
-            startActivity(Intent(this,WishlistCollectionActivity::class.java))
+        startActivity(Intent(this,WishlistCollectionActivity::class.java))
 
 
     }

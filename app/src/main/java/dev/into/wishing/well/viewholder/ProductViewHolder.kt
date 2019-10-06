@@ -12,19 +12,21 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.into.wishing.well.R
+import dev.into.wishing.well.db.ProductEntity
 import dev.into.wishing.well.model.Product
 
 class ProductViewHolder internal constructor(inflater: LayoutInflater, parent: ViewGroup, @LayoutRes res: Int)
     : RecyclerView.ViewHolder(inflater.inflate(res, parent, false)){
-    val card: CardView = itemView.findViewById(R.id.card)
-    val title: TextView = itemView.findViewById(R.id.productTitle)
-    val image: ImageView = itemView.findViewById(R.id.productImage)
-    val price: TextView = itemView.findViewById(R.id.productPrice)
+    val card: CardView? = itemView.findViewById(R.id.card)
+    val title: TextView? = itemView.findViewById(R.id.productTitle)
+    val image: ImageView? = itemView.findViewById(R.id.productImage)
+    val price: TextView? = itemView.findViewById(R.id.productPrice)
+    val headerView: TextView? = itemView.findViewById(R.id.headerText)
 
     var product: Product? = null
 
     init {
-        card.setOnClickListener {
+        card?.setOnClickListener {
             product?.let {p ->
                 card.context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(p.url)))
             }
@@ -33,11 +35,26 @@ class ProductViewHolder internal constructor(inflater: LayoutInflater, parent: V
     }
 
     @SuppressLint("SetTextI18n")
-    fun bind(product: Product){
+    private fun bind(product: Product){
+        println("ProductViewHolder Product bound")
         this.product = product
-        title.text = product.name
-        price.text = "${product.price}₺"
+        title?.text = product.name
+        price?.text = "${product.price}₺"
+        image ?: return
         Glide.with(image).load(product.imageUrl).into(image)
+    }
+
+    private fun bind(header: String){
+        println("ProductViewHolder Header bound")
+        headerView?.text = header
+    }
+
+    fun bind(data: Any){
+        when (data) {
+            is Product -> bind(data)
+            is String -> bind(data)
+            is ProductEntity -> bind(data.product)
+        }
     }
 
 }
