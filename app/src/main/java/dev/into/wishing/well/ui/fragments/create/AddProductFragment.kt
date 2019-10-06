@@ -148,7 +148,7 @@ class AddProductFragment : Fragment() {
         addProduct.setOnClickListener {
             if (productPrice.text.isNotEmpty() and productTitle.text.isNotEmpty()){
                 Thread{
-                    CollectionsDB.db(mContext).data().insert(ProductEntity(product.data,"wishlist",false))
+                    CollectionsDB.db(mContext).data().insert(ProductEntity(product.data,selectedList,false))
                 }.start()
             }
         }
