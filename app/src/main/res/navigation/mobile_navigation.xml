@@ -22,9 +22,9 @@
         tools:layout="@layout/fragment_add_product" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_history"
         android:name="dev.into.wishing.well.ui.fragments.history.HistoryFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/history"
         tools:layout="@layout/fragment_history" />
     <fragment
         android:id="@+id/collectionWishlist"
