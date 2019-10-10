@@ -17,11 +17,11 @@ import dev.into.wishing.well.model.Product
 
 class ProductViewHolder internal constructor(inflater: LayoutInflater, parent: ViewGroup, @LayoutRes res: Int)
     : RecyclerView.ViewHolder(inflater.inflate(res, parent, false)){
-    val card: CardView? = itemView.findViewById(R.id.card)
-    val title: TextView? = itemView.findViewById(R.id.productTitle)
-    val image: ImageView? = itemView.findViewById(R.id.productImage)
-    val price: TextView? = itemView.findViewById(R.id.productPrice)
-    val headerView: TextView? = itemView.findViewById(R.id.headerText)
+    private val card: CardView? = itemView.findViewById(R.id.card)
+    private val title: TextView? = itemView.findViewById(R.id.productTitle)
+    private val image: ImageView? = itemView.findViewById(R.id.productImage)
+    private val price: TextView? = itemView.findViewById(R.id.productPrice)
+    private val headerView: TextView? = itemView.findViewById(R.id.headerText)
 
     var product: Product? = null
 
