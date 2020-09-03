@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.webkit.WebView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.LayoutRes
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.into.wishing.well.R
 import dev.into.wishing.well.db.ProductEntity
+import dev.into.wishing.well.model.IntoDevScraper
 import dev.into.wishing.well.model.Product
 
 class ProductViewHolder internal constructor(inflater: LayoutInflater, parent: ViewGroup, @LayoutRes res: Int)
@@ -22,6 +24,7 @@ class ProductViewHolder internal constructor(inflater: LayoutInflater, parent: V
     private val image: ImageView? = itemView.findViewById(R.id.productImage)
     private val price: TextView? = itemView.findViewById(R.id.productPrice)
     private val headerView: TextView? = itemView.findViewById(R.id.headerText)
+    private val browser: WebView? = itemView.findViewById(R.id.browser)
 
     var product: Product? = null
 
@@ -36,16 +39,18 @@ class ProductViewHolder internal constructor(inflater: LayoutInflater, parent: V
 
     @SuppressLint("SetTextI18n")
     private fun bind(product: Product){
-        println("ProductViewHolder Product bound")
         this.product = product
         title?.text = product.name
         price?.text = "${product.price}₺"
         image ?: return
         Glide.with(image).load(product.imageUrl).into(image)
+        browser ?: return
+        IntoDevScraper(browser, product).refreshProduct {
+            price?.text = "${it.price}₺"
+        }
     }
 
     private fun bind(header: String){
-        println("ProductViewHolder Header bound")
         headerView?.text = header
     }
 
